@@ -1,5 +1,5 @@
 data:
-  file_path: "./phising.csv"
+  file_path: "./data/phising.csv"
   target_column: "Result"
   test_size: 0.2
   random_state: 42
@@ -32,7 +32,7 @@ xgboost:
 # ANN (MLPClassifier) CONFIG
 # ========================
 mlp:
-  hidden_layers: [128, 64, 32]
+  hidden_layer_sizes: [128, 64, 32]
   activation: "relu"
   solver: "adam"
   learning_rate_init: 0.001

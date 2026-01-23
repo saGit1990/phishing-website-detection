@@ -3,17 +3,16 @@ import mlflow
 import mlflow.sklearn
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, classification_report, f1_score, precision_score, recall_score
-from src.utils import  print_header
+from src.utils import  print_header, ensure_artifacts_dir
 
 def train_ann(x_train, x_test, y_train, y_test, params, save_path):
     print_header("TRAINING ANN MLPClassifier with MLFLOw")
-
+    ensure_artifacts_dir(save_path)
     # FIX: config compatibility
     params = params.copy()
 
-    if 'hidden_layer' in params:
-        params['hidden_layer_sizes'] = tuple(params['hidden_layers'])
-        del params['hidden_layers']
+    if 'hidden_layer_sizes' in params and isinstance(params['hidden_layer_sizes'], list):
+        params['hidden_layer_sizes'] = tuple(params['hidden_layer_sizes'])
 
     with mlflow.start_run(run_name="ANN_MLP_Phishing"):
         # log hyperparameters
@@ -24,8 +23,8 @@ def train_ann(x_train, x_test, y_train, y_test, params, save_path):
 
         pred = ann.predict(x_test)
 
-        acc = accuracy_score(y_train,pred)
-        report = classification_report(y_train,pred, output_dict=True)
+        acc = accuracy_score(y_test, pred)
+        report = classification_report(y_test, pred, output_dict=True)
 
         # Log Metrics
         mlflow.log_metric("accuracy", acc)

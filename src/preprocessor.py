@@ -22,6 +22,9 @@ def preprocess_data(df, target_col, test_size, random_state, scaler_path):
     x_test_scaled = scaler.fit_transform(x_test)
 
     # create right artifacts
+    ensure_artifacts_dir(os.path.dirname(scaler_path))
+
+    # save scaler
     joblib.dump(scaler, scaler_path)
     print(f"Scaler saved -> {scaler_path}")
 

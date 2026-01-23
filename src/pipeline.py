@@ -1,3 +1,4 @@
+import os
 from src.config_loader import load_config
 from src.data_loader import load_dataset
 from src.preprocessor import preprocess_data
@@ -14,7 +15,7 @@ def run_pipeline():
         target_col = config_loader['data']['target_column'],
         test_size = config_loader['data']['test_size'],
         random_state = config_loader['data']['random_state'],
-        scaler_path = config_loader['artifacts']['directory']/{config_loader['artifacts']['scaler_filename']}
+        scaler_path = os.path.join(config_loader['artifacts']['directory'],config_loader['artifacts']['scaler_filename'])
     )
 
     train_xgboost(

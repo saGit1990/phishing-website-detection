@@ -4,11 +4,12 @@ import mlflow.sklearn
 
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, classification_report
-from src.utils import print_header
+from src.utils import print_header, ensure_artifacts_dir
 
 def train_xgboost(X_train, X_test, y_train, y_test, params, save_path):
     print_header("TRAINING XGBOOST (MLflow Enabled)")
 
+    ensure_artifacts_dir(save_path)
     params = params.copy()
 
     with mlflow.start_run(run_name="XGBoost_Phishing"):
