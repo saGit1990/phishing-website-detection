@@ -1,0 +1,22 @@
+artifact_path: /Users/suel/Documents/aiml projects/network_phising/mlruns/0/models/m-1c1108d00b864d78a30f3877834f9e06/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.0
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+mlflow_version: 3.8.1
+model_id: m-1c1108d00b864d78a30f3877834f9e06
+model_size_bytes: 999564
+model_uuid: m-1c1108d00b864d78a30f3877834f9e06
+prompts: null
+run_id: 9fe9ea5fb21144eba05fee785be6e28a
+utc_time_created: '2026-01-24 16:40:01.174650'

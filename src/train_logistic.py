@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from src.utils import print_header, ensure_artifacts_dir
 
 def train_logistic(X_train, X_test, y_train, y_test, save_path):
-    print_header("TRAINING XGBOOST (MLflow Enabled)")
+    print_header("TRAINING LOGISTIC (MLflow Enabled)")
 
     ensure_artifacts_dir(save_path)
     params = "Log Reg Basic"
@@ -36,4 +36,4 @@ def train_logistic(X_train, X_test, y_train, y_test, save_path):
 
         print("Log Reg Accuracy:", acc)
         print("Classification Report:\n", classification_report(y_test, preds))
-        print(f"XGBoost model saved → {save_path}")
+        print(f"Logist model saved → {save_path}")

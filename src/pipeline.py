@@ -21,7 +21,7 @@ def run_pipeline():
 
     train_logistic(
         x_train, x_test, y_train, y_test,
-        save_path=f"{config_loader['artifacts']['directory']}/{config_loader['artifacts']['xgb_model_filename']}"
+        save_path=f"{config_loader['artifacts']['directory']}/{config_loader['artifacts']['log_model_filename']}"
     )
 
     train_xgboost(

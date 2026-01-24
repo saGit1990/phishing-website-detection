@@ -9,6 +9,7 @@ artifacts:
   scaler_filename: "scaler.pkl"
   xgb_model_filename: "xgb_model.pkl"
   ann_model_filename: "ann_mlp_model.pkl"
+  log_model_filename: "log_reg_model.pkl"
 
 
 scaler:
@@ -26,6 +27,9 @@ xgboost:
   reg_lambda: 1.0
   scale_pos_weight: 1
   n_jobs: -1
+  eval_metric: "logloss"
+
+logistic:
   eval_metric: "logloss"
 
 # ========================
