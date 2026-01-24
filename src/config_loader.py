@@ -12,6 +12,6 @@ def load_config(path='config.yaml'):
     return config
 
 
-if __name__== "__main__":
-    config = load_config('config.yaml')
-    print(config)
+# if __name__== "__main__":
+#     config = load_config('config.yaml')
+#     print(config)
