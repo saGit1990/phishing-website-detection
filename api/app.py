@@ -1,14 +1,14 @@
-from fastapi import FASTAPI, Request, Form
-from fastapi.response import HTMLResponse
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI, Request, Form
+from starlette.responses import HTMLResponse
+from starlette.templating import Jinja2Templates
 from pathlib import Path
 
 # IMPORTANT: predictor
-from inference.predictor import predict
+from inference.predictions import predict
 
-app = FASTAPI(title="Phishing AI", version='1.0')
+app = FastAPI(title="Phishing AI", version='1.0')
 
-BASE_DIR = Path(__file__).resolve().parent[1]
+BASE_DIR = Path(__file__).resolve().parent.parent
 templates = Jinja2Templates(directory = str(BASE_DIR / "api" / 'templates'))
 
 # ===============================
